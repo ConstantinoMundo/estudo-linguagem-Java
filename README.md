@@ -35,4 +35,4 @@ Gostaria de expressar minha gratidão a todos os recursos online, tutoriais e co
 
 ## Contato
 
-Se você quiser entrar em contato comigo, pode me encontrar no seguinte endereço de e-mail: [seu-email@example.com](mailto:constantinosszm03@gmail.com).
+Se você quiser entrar em contato comigo, pode me encontrar no seguinte endereço de e-mail: [constantinoszm03@gmail.com](mailto:constantinosszm03@gmail.com).
