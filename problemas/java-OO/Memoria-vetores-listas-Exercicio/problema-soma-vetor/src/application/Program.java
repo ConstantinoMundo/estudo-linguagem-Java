@@ -19,7 +19,7 @@ public class Program {
 		n = sc.nextInt();
 		double[] vet = new double[n];
 		for (int i = 0; i < vet.length; i++) {
-			System.out.print("Digite o " + i + " numero : ");
+			System.out.printf("Digite o %d numero : ", 1 + i);
 			vet[i] = sc.nextDouble();
 		}
 		
