@@ -13,7 +13,7 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		List<Funcionario> lisFuncionario = new ArrayList<>();
+		List<Funcionario> listFuncionario = new ArrayList<>();
 
 		System.out.print("How many employees will be registered? ");
 		int n = sc.nextInt();
@@ -24,11 +24,11 @@ public class Program {
 			System.out.printf("Emplyoee #%d: \n", 1 + i);
 			System.out.print("Id: ");
 			Integer id = sc.nextInt();
-			while(hasId(lisFuncionario, id)) {
+			while (hasId(listFuncionario, id)) {
 				System.out.print("Id alreddy taken! Try again: ");
 				id = sc.nextInt();
 			}
-			
+
 			sc.nextLine();
 			System.out.print("Name: ");
 			String name = sc.nextLine();
@@ -36,7 +36,7 @@ public class Program {
 			Double salary = sc.nextDouble();
 
 			Funcionario funcionario = new Funcionario(id, name, salary);
-			lisFuncionario.add(funcionario);
+			listFuncionario.add(funcionario);
 
 		}
 
@@ -44,8 +44,8 @@ public class Program {
 		System.out.print("Enter the employee id that will have salary increase : ");
 		int idEmployee = sc.nextInt();
 
-		Funcionario func = lisFuncionario.stream().filter(x -> x.getId() == idEmployee).findFirst().orElse(null);
-		
+		Funcionario func = listFuncionario.stream().filter(x -> x.getId() == idEmployee).findFirst().orElse(null);
+
 		// Integer pos = positionId(lisFuncionario, idEmployee);
 		if (func == null) {
 			System.out.println("This id does not exist!");
@@ -53,12 +53,11 @@ public class Program {
 			System.out.print("Enter the percentage: ");
 			double percent = sc.nextDouble();
 			func.percentage(percent);
-			System.out.println(lisFuncionario);
 		}
 
 		System.out.println();
 		System.out.println("List of employees:");
-		for (Funcionario emp : lisFuncionario) {
+		for (Funcionario emp : listFuncionario) {
 			System.out.println(emp);
 		}
 
@@ -75,8 +74,8 @@ public class Program {
 		return null;
 	}
 
-	public static boolean hasId(List<Funcionario> lisFuncionario, int id) {
-		Funcionario func = lisFuncionario.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+	public static boolean hasId(List<Funcionario> listFuncionario, int id) {
+		Funcionario func = listFuncionario.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
 		return func != null;
 	}
 }
