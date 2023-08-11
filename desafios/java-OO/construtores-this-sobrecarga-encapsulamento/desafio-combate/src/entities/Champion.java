@@ -50,18 +50,21 @@ public class Champion {
 	}
 
 	public void takeDamage(Champion other) {
-		if (armor >= other.attack) {
-			life -= -1;
+		int damage;
+		if (armor >= other.getAttack()) {
+			damage = 1;
 		} else {
-			life += armor - other.attack;
+			damage = other.getAttack() - armor;
 		}
+
+		life = life - damage;
 	}
 
 	public String status() {
-		if (life == 0) {
+		if (life <= 0) {
 			return name + ": 0 de vida (morreu)";
 		} else {
-			return name + ": " + life + "de vida";
+			return name + ": " + life + " de vida";
 		}
 
 	}
