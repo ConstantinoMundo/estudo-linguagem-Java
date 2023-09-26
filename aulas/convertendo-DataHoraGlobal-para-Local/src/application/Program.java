@@ -28,7 +28,16 @@ public class Program {
 		System.out.println(globalToLocal2);
 		System.out.println(globalToLocal3);
 		
+		System.out.println();
+		System.out.println("Dia: " + date.getDayOfMonth());
+		System.out.println("Mês: " + date.getMonthValue());
+		System.out.println("Ano: " + date.getYear());
 		
+		System.out.println("Hora: " + dateTime.getHour());
+		System.out.println("Minuto: " + dateTime.getMinute());
+
+
+
 	}
 
 }
