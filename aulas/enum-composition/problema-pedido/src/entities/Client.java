@@ -1,28 +1,28 @@
 package entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Client {
 
-	private String client;
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+	private String name;
 	private String email;
 	private LocalDate birthDate;
 
-	public Client() {
-	}
-
-	public Client(String client, String email, LocalDate birthDate) {
-		this.client = client;
+	public Client(String name, String email, LocalDate birthDate) {
+		this.name = name;
 		this.email = email;
 		this.birthDate = birthDate;
 	}
 
 	public String getClient() {
-		return client;
+		return name;
 	}
 
 	public void setClient(String client) {
-		this.client = client;
+		this.name = client;
 	}
 
 	public String getEmail() {
@@ -41,4 +41,8 @@ public class Client {
 		this.birthDate = birthDate;
 	}
 
+	@Override
+	public String toString() {
+		return name + " (" + formatter.format(birthDate) + ") - " + email;
+	}
 }

@@ -18,9 +18,6 @@ public class Order {
 	private Client client;
 	private List<OrderItem> orderItems = new ArrayList<>();
 
-	public Order() {
-	}
-
 	public Order(LocalDateTime dateTime, Client client, OrderStatus status) {
 		this.dateTime = dateTime;
 		this.status = status;
@@ -72,21 +69,21 @@ public class Order {
 		return totalPrice;
 	}
 
+	@Override
 	public String toString() {
+		
 		StringBuilder sb = new StringBuilder();
-		sb.append("ORDER SUMMARY: \n");
+
 		sb.append("Order moment: " + dateTime.format(formatter1) + "\n");
 		sb.append("Order status: " + status + "\n");
-		sb.append("Client " + client.getClient()
-					+" (" + client.getBirthDate().format(formatter) + ")"
-					+ " - " + client.getEmail() +"\n");
-		sb.append("Order items: \n");
+		sb.append("Client " + client + "\n");
 		
+		sb.append("Order items: \n");
 		for(OrderItem oi: orderItems) {
 			sb.append(oi + "\n");
 		}
 		
-		sb.append("Total price: Kz" + String.format("%.2f", total()));
+		sb.append("Total price: Kz " + String.format("%.2f", total()));
 		return sb.toString();
 
 	}
