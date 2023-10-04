@@ -30,7 +30,7 @@ Stack Overflow para encontrar respostas para perguntas específicas relacionadas
 
 Enumeração e composição são conceitos poderosos em Java que ajudam a definir e trabalhar com dados estruturados e a criar classes complexas combinando classes mais simples. Compreender e aplicar esses conceitos pode levar a um código mais organizado e de fácil manutenção em seus projetos Java.
 
-Tenha em mente que o tratamento de data e hora pode ser complexo e é crucial compreender os requisitos específicos do seu projeto e escolher as classes e bibliotecas de data e hora apropriadas de acordo.
+É crucial compreender os requisitos específicos do seu projeto e escolher as classes e bibliotecas apropriadas de acordo.
 
 Boa codificação!
 
