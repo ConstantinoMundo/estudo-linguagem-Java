@@ -48,28 +48,22 @@ public class Program {
 		
 		System.out.println();
 		System.out.println("FOLHA DE PAGAMENTO:");
-		ShowReport(department);
+		showReport(department);
 		sc.close();
 	}
 
-	public static void ShowReport(Department dept) {
-		
-		Department dt = new Department();
-		List<Employee> employees = new ArrayList<>();
-		
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("Departamento Vendas =  " + String.format("%.2f", + dt.payRoll() + "\n"));
-		sb.append("Pagamento realizado no dia " + dt.getPayDay() + "\n");
-		sb.append("Funcionários: \n");
-		for (Employee emp : employees) {
-			sb.append(emp.getName() + "\n");
-		}
-		sb.append("Para dúvidas favor entrar em contato: " + dt.getAddress().getEmail());
-
-		sb.toString();
-		System.out.println(sb);
-
-	}
+	public static void showReport(Department depart){
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nFOLHA DE PAGAMENTO:\n");
+        sb.append("Departamento " + depart.getName() + " R$ " + String.format("%.2f",depart.payRoll()));
+        sb.append("\nPagamento realizado no dia " + depart.getPayDay());
+        sb.append("\nFuncionários:\n");
+        for (Employee e : depart.getEmployees()){
+            sb.append(e.getName() + "\n");
+        }
+        sb.append("Para duvidas entrar em contato: " + depart.getAddress().getEmail());
+        String text = sb.toString();
+        System.out.println(text);
+    }
 
 }
