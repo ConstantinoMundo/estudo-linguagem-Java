@@ -1,19 +1,6 @@
 # DESAFIO: Empregados OO (Enumerações e composição)
 
-### Instruções sobre o desafio
-
-Você deve fazer um programa para ler os dados de um departamento, que inclui seu endereço e seus 
-empregados. Em seguida você deverá mostrar na tela um relatório de folha de pagamento, conforme 
-exemplos. 
-Para resolver este problema, você deverá implementar as entidades conforme projeto abaixo. O método 
-payroll() da classe Department é responsável por retornar o valor total da folha de pagamento do 
-departamento.
-
-### Diagrama UML
-
-<img src="UML.png" alt="Class">
-<img src="1.png" alt="Class">
-
+## Instruções sobre o desafio acessar o pdf
 
 ## Contribuição
 
