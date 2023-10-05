@@ -11,7 +11,8 @@ departamento.
 
 ### Diagrama UML
 
-c:/Users/CSZM/Pictures\UML.png
+<img src="UML.png" alt="Class">
+<img src="1.png" alt="Class">
 
 
 ## Contribuição
