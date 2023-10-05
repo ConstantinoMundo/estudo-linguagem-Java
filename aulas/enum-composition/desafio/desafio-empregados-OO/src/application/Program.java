@@ -47,7 +47,6 @@ public class Program {
 		}
 		
 		System.out.println();
-		System.out.println("FOLHA DE PAGAMENTO:");
 		showReport(department);
 		sc.close();
 	}
