@@ -20,9 +20,21 @@ public class Program {
 
 		// Downcasting
 
-		BusinessAccount businessAccount1 = (BusinessAccount) account;
+		BusinessAccount businessAccount1 = (BusinessAccount) account2;
 		businessAccount.loan(250.00);
 
+		// Instanceof
+		
+		if(account3 instanceof BusinessAccount) {
+			BusinessAccount businessAccount2 = (BusinessAccount)account3;
+			businessAccount2.loan(3000.00);
+			System.out.println("Loan");
+		}
+		if(account3 instanceof SavingsAccount) {
+			SavingsAccount savingsAccount1 = (SavingsAccount)account3;
+			savingsAccount.updateBalance();
+			System.out.println("Update balance");
+		}
 	}
 
 }
