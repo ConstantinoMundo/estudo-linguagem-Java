@@ -7,8 +7,8 @@ import java.time.temporal.ChronoUnit;
 public class Reservation {
 
 	private Integer roomNumber;
-	private LocalDate checkin;
-	private LocalDate checkout;
+	private LocalDate checkIn;
+	private LocalDate checkOut;
 
 	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -17,8 +17,8 @@ public class Reservation {
 
 	public Reservation(Integer roomNumber, LocalDate checkin, LocalDate checkout) {
 		this.roomNumber = roomNumber;
-		this.checkin = checkin;
-		this.checkout = checkout;
+		this.checkIn = checkin;
+		this.checkOut = checkout;
 	}
 
 	public Integer getRoomNumber() {
@@ -29,30 +29,37 @@ public class Reservation {
 		this.roomNumber = roomNumber;
 	}
 
-	public LocalDate getCheckin() {
-		return checkin;
+	public LocalDate getCheckIn() {
+		return checkIn;
 	}
 
-	public LocalDate getCheckout() {
-		return checkout;
+	public LocalDate getCheckOut() {
+		return checkOut;
 	}
 
 	public long duration() {
 
-		long days = ChronoUnit.DAYS.between(checkin, checkout);
+		long days = ChronoUnit.DAYS.between(checkIn, checkOut);
 		return days;
 	}
-	
-	public void updateDates (LocalDate chechIn, LocalDate checkOut) {
-		this.checkin = chechIn;
-		this.checkout = checkOut;
+
+	public String updateDates(LocalDate chechIn, LocalDate checkOut) {
+		LocalDate now = LocalDate.now();
+		if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
+			return " Reservation dates for update must be future dates";
+
+		} if (checkIn.isAfter(checkOut)) {
+			return " Check-out date must be after check-in date";
+
+		}
+		this.checkIn = chechIn;
+		this.checkOut = checkOut;
+		return null;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Room " + roomNumber
-				+ ", check-in: " + dtf.format(checkin)
-				+ ", check-out: " + dtf.format(checkout)
+		return "Room " + roomNumber + ", check-in: " + dtf.format(checkIn) + ", check-out: " + dtf.format(checkOut)
 				+ ", " + duration() + " nights";
 	}
 
