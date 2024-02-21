@@ -43,17 +43,18 @@ public class Reservation {
 		return days;
 	}
 
-	public String updateDates(LocalDate chechIn, LocalDate checkOut) {
-		LocalDate now = LocalDate.now();
-		if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
+	public String updateDates(LocalDate chechInUp, LocalDate checkOutUp) {
+		// LocalDate now = LocalDate.now();
+		if (checkIn.isAfter(chechInUp) && checkOut.isAfter(checkOutUp)) {
 			return " Reservation dates for update must be future dates";
 
-		} if (checkIn.isAfter(checkOut)) {
+		}
+		if (checkOut.isAfter(this.checkIn)) {
 			return " Check-out date must be after check-in date";
 
 		}
-		this.checkIn = chechIn;
-		this.checkOut = checkOut;
+		this.checkIn = chechInUp;
+		this.checkOut = checkOutUp;
 		return null;
 	}
 

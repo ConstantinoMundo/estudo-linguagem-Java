@@ -29,11 +29,11 @@ public class Program {
 			System.out.println();
 			System.out.println("Enter data to update the reservation: ");
 			System.out.print("Check-in date (dd/MM/yyyy): ");
-			checkIn = LocalDate.parse(sc.next(), dtf);
+			LocalDate checkInUp = LocalDate.parse(sc.next(), dtf);
 			System.out.print("Check-out date (dd/MM/yyyy): ");
-			checkOut = LocalDate.parse(sc.next(), dtf);
+			LocalDate checkOutuUp = LocalDate.parse(sc.next(), dtf);
 
-			String error = reservation.updateDates(checkIn, checkOut);
+			String error = reservation.updateDates(checkInUp, checkOutuUp);
 			if (error == null) {
 				System.out.println("Reservation: " + reservation);
 			} else {
