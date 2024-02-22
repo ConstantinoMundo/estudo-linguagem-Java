@@ -1,8 +1,10 @@
 package model.entities;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+
+import model.exceptions.DomainException;
 
 public class Reservation {
 
@@ -15,10 +17,13 @@ public class Reservation {
 	public Reservation() {
 	}
 
-	public Reservation(Integer roomNumber, LocalDate checkin, LocalDate checkout) {
+	public Reservation(Integer roomNumber, LocalDate checkIn, LocalDate checkOut) {
+		if (checkIn.isAfter(checkOut)) {
+			throw new DomainException("Check-out date must be after check-in date");
+		}
 		this.roomNumber = roomNumber;
-		this.checkIn = checkin;
-		this.checkOut = checkout;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
 	}
 
 	public Integer getRoomNumber() {
@@ -37,25 +42,32 @@ public class Reservation {
 		return checkOut;
 	}
 
+	//Method to obtain the days
 	public long duration() {
-
-		long days = ChronoUnit.DAYS.between(checkIn, checkOut);
-		return days;
+		if (checkIn.isAfter(checkOut)) {
+			throw new DomainException("Check-out date must be after check-in date");
+		}
+		Period days = Period.between(checkIn, checkOut);
+		return days.getDays();
 	}
 
-	public String updateDates(LocalDate chechInUp, LocalDate checkOutUp) {
-		// LocalDate now = LocalDate.now();
-		if (checkIn.isAfter(chechInUp) && checkOut.isAfter(checkOutUp)) {
-			return " Reservation dates for update must be future dates";
+	
+	public void updateDates(LocalDate chechInUp, LocalDate checkOutUp) {
 
+		/*
+		 * Throws the exception and the check-in date is later than chechInUp or
+		 * checkOut than checkOutUp
+		 */
+		if (checkIn.isAfter(chechInUp) || checkOut.isAfter(checkOutUp)) {
+			throw new DomainException("Reservation dates for update must be future dates");
 		}
-		if (checkOut.isAfter(this.checkIn)) {
-			return " Check-out date must be after check-in date";
 
+		// Throws exception if check-in date is later than check-out
+		if (checkIn.isAfter(checkOut)) {
+			throw new DomainException("Check-out date must be after check-in date");
 		}
 		this.checkIn = chechInUp;
 		this.checkOut = checkOutUp;
-		return null;
 	}
 
 	@Override
