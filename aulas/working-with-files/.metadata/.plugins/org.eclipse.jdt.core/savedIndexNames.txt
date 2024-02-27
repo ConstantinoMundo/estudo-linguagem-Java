@@ -1,3 +1,2 @@
 INDEX VERSION 1.134+C:\WorkSpace\ws-sts\estudo-linguagem-Java\aulas\working-with-files\.metadata\.plugins\org.eclipse.jdt.core
-3646256600.index
 1865797976.index
